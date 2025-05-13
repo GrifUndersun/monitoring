@@ -1,4 +1,4 @@
-1. Edit inventories\hosts.ini.example file (remove .example)
+1. Edit `inventories\hosts.ini.example file (remove .example)`:
 ```bash
 [prometheus_server]
 localhost ansible_connection=local
@@ -9,7 +9,7 @@ your_server2 ansible_user=rewxrld
 your_server3 ansible_user=rewxrld
 ```
 
-2. Edit roles\prometheus\files\prometheus.yml
+2. Edit `roles\prometheus\files\prometheus.yml`:
 ```bash
 global:
   scrape_interval: 15s
