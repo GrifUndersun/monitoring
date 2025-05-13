@@ -1,0 +1,13 @@
+---
+- name: Setup Prometheus and Grafana on localhost
+  hosts: prometheus_server
+  become: yes
+  roles:
+    - prometheus
+    - grafana
+
+- name: Install Node Exporter on remote nodes
+  hosts: remote_nodes
+  become: yes
+  roles:
+    - node_exporter

@@ -1,0 +1,31 @@
+---
+- name: Copy Node Exporter binary
+  copy:
+    src: node_exporter
+    dest: /usr/local/bin/node_exporter
+    mode: 0755
+
+- name: Create systemd service
+  copy:
+    dest: /etc/systemd/system/node_exporter.service
+    content: |
+      [Unit]
+      Description=Node Exporter
+      After=network.target
+
+      [Service]
+      ExecStart=/usr/local/bin/node_exporter
+      Restart=always
+
+      [Install]
+      WantedBy=multi-user.target
+
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+
+- name: Enable and start Node Exporter
+  systemd:
+    name: node_exporter
+    enabled: yes
+    state: started

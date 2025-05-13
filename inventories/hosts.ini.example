@@ -1,0 +1,8 @@
+[prometheus_server]
+localhost ansible_connection=local
+
+[remote_nodes]
+server1 ansible_user=rewxrld
+server2 ansible_user=rewxrld
+server3 ansible_user=rewxrld
+
